@@ -1,6 +1,7 @@
 package com.meena.takitaki.controller;
 
 import com.meena.takitaki.model.TacoOrder;
+import com.meena.takitaki.repository.TacoOrderRepository;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,11 @@ import org.springframework.web.bind.support.SessionStatus;
 @RequestMapping("/orders")
 @SessionAttributes("tacoOrder")
 public class TacoOrderController {
+  private final TacoOrderRepository tacoOrderRepository;
+
+  public TacoOrderController(TacoOrderRepository tacoOrderRepository) {
+    this.tacoOrderRepository = tacoOrderRepository;
+  }
 
   @GetMapping("/current")
   public String orderForm(@ModelAttribute("tacoOrder") TacoOrder tacoOrder) {
@@ -29,6 +35,7 @@ public class TacoOrderController {
     if (errors.hasErrors()) {
       return "orderForm";
     }
+    tacoOrderRepository.save(order);
     sessionStatus.setComplete();
     return "redirect:/";
   }

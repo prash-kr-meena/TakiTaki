@@ -8,12 +8,13 @@ create table if not exists taco_order
     delivery_zip    varchar(10) not null,
     cc_number       varchar(16) not null,
     cc_expiration   varchar(5)  not null,
-    cc_cvv          varchar(3)  not null
+    cc_cvv          varchar(3)  not null,
+    placed_at       timestamp   not null
 );
 
 create table if not exists ingredient
 (
-    id   varchar(4)  not null primary key ,
+    id   varchar(4)  not null primary key,
     name varchar(50) not null,
     type varchar(10) not null
 );

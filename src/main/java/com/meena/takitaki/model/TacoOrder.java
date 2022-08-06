@@ -21,6 +21,7 @@ public class TacoOrder {
   @NotBlank(message = "Delivery City is required!")
   private String deliveryCity;
   @NotBlank(message = "Delivery State is required!")
+  @Size(min = 2, max = 2, message = "State can only have a size of 2")
   private String deliveryState;
   @NotBlank(message = "Delivery Zip is required!")
   private String deliveryZip;
