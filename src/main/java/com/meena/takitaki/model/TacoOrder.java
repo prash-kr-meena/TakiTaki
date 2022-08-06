@@ -1,5 +1,6 @@
 package com.meena.takitaki.model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.Digits;
@@ -11,6 +12,8 @@ import org.hibernate.validator.constraints.CreditCardNumber;
 
 @Data
 public class TacoOrder {
+  private Long id;
+  private LocalDateTime placedAt;
   @NotBlank(message = "Delivery Name is required!")
   private String deliveryName;
   @NotBlank(message = "Delivery Street is required!")
@@ -21,7 +24,7 @@ public class TacoOrder {
   private String deliveryState;
   @NotBlank(message = "Delivery Zip is required!")
   private String deliveryZip;
-//  @CreditCardNumber(message = "Not a valid Credit Card Number")
+  //  @CreditCardNumber(message = "Not a valid Credit Card Number")
   private String ccNumber;
   @Pattern(regexp = "^(0[1-9]|1[0-2])([\\/])([2-9][0-9])$", message = "Expiration does not match the format of MM/YY")
   private String ccExpiration;

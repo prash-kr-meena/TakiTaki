@@ -4,7 +4,7 @@ import com.meena.takitaki.model.Ingredient;
 import com.meena.takitaki.model.Ingredient.Type;
 import com.meena.takitaki.model.Taco;
 import com.meena.takitaki.model.TacoOrder;
-import java.util.Arrays;
+import com.meena.takitaki.repository.JdbcIngredientRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
@@ -21,21 +21,27 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @Controller
 @SessionAttributes("tacoOrder")
 public class TacoDesignController {
+  private final JdbcIngredientRepository ingredientRepository;
+
+  public TacoDesignController(JdbcIngredientRepository ingredientRepository) {
+    this.ingredientRepository = ingredientRepository;
+  }
 
   @ModelAttribute
   public void addIngredientsToModel(Model model) {
-    List<Ingredient> ingredients = Arrays.asList(
-        new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
-        new Ingredient("COTO", "Corn Tortilla", Type.WRAP),
-        new Ingredient("GRBF", "Ground Beef", Type.PROTEIN),
-        new Ingredient("CARN", "Carnitas", Type.PROTEIN),
-        new Ingredient("TMTO", "Diced Tomatoes", Type.VEGGIES),
-        new Ingredient("LETC", "Lettuce", Type.VEGGIES),
-        new Ingredient("CHED", "Cheddar", Type.CHEESE),
-        new Ingredient("JACK", "Monterrey Jack", Type.CHEESE),
-        new Ingredient("SLSA", "Salsa", Type.SAUCE),
-        new Ingredient("SRCR", "Sour Cream", Type.SAUCE)
-    );
+    //    List<Ingredient> ingredients = Arrays.asList(
+    //        new Ingredient("FLTO", "Flour Tortilla", Type.WRAP),
+    //        new Ingredient("COTO", "Corn Tortilla", Type.WRAP),
+    //        new Ingredient("GRBF", "Ground Beef", Type.PROTEIN),
+    //        new Ingredient("CARN", "Carnitas", Type.PROTEIN),
+    //        new Ingredient("TMTO", "Diced Tomatoes", Type.VEGGIES),
+    //        new Ingredient("LETC", "Lettuce", Type.VEGGIES),
+    //        new Ingredient("CHED", "Cheddar", Type.CHEESE),
+    //        new Ingredient("JACK", "Monterrey Jack", Type.CHEESE),
+    //        new Ingredient("SLSA", "Salsa", Type.SAUCE),
+    //        new Ingredient("SRCR", "Sour Cream", Type.SAUCE)
+    //    );
+    List<Ingredient> ingredients = ingredientRepository.findAll();
 
     Type[] types = Ingredient.Type.values();
     for (Type type : types) {
