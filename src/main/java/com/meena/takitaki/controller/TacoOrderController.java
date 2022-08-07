@@ -2,6 +2,7 @@ package com.meena.takitaki.controller;
 
 import com.meena.takitaki.model.TacoOrder;
 import com.meena.takitaki.repository.TacoOrderRepository;
+import java.time.LocalDateTime;
 import javax.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -33,8 +34,11 @@ public class TacoOrderController {
   public String processOrder(@Valid TacoOrder order, Errors errors, SessionStatus sessionStatus) {
     log.info("Order submitted: {}", order);
     if (errors.hasErrors()) {
+      log.error(errors.getAllErrors().toString());
       return "orderForm";
     }
+
+    order.setPlacedAt(LocalDateTime.now());
     tacoOrderRepository.save(order);
     sessionStatus.setComplete();
     return "redirect:/";

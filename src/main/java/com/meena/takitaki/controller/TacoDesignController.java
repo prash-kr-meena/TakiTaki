@@ -4,7 +4,7 @@ import com.meena.takitaki.model.Ingredient;
 import com.meena.takitaki.model.Ingredient.Type;
 import com.meena.takitaki.model.Taco;
 import com.meena.takitaki.model.TacoOrder;
-import com.meena.takitaki.repository.JdbcIngredientRepository;
+import com.meena.takitaki.repository.IngredientRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
@@ -21,9 +21,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @Controller
 @SessionAttributes("tacoOrder")
 public class TacoDesignController {
-  private final JdbcIngredientRepository ingredientRepository;
+  private final IngredientRepository ingredientRepository;
 
-  public TacoDesignController(JdbcIngredientRepository ingredientRepository) {
+  public TacoDesignController(IngredientRepository ingredientRepository) {
     this.ingredientRepository = ingredientRepository;
   }
 

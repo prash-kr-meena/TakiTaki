@@ -2,17 +2,17 @@ package com.meena.takitaki.model.convertor;
 
 
 import com.meena.takitaki.model.Ingredient;
-import com.meena.takitaki.repository.JdbcIngredientRepository;
+import com.meena.takitaki.repository.IngredientRepository;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 @Component
 public class IngredientByIdConverter implements Converter<String, Ingredient> {
   //  private Map<String, Ingredient> ingredientMap = new HashMap<>();
-  private final JdbcIngredientRepository ingredientRepository;
+  private final IngredientRepository ingredientRepository;
 
 
-  public IngredientByIdConverter(JdbcIngredientRepository ingredientRepository) {
+  public IngredientByIdConverter(IngredientRepository ingredientRepository) {
     //    ingredientMap.put("FLTO", new Ingredient("FLTO", "Flour Tortilla", Type.WRAP));
     //    ingredientMap.put("COTO", new Ingredient("COTO", "Corn Tortilla", Type.WRAP));
     //    ingredientMap.put("GRBF", new Ingredient("GRBF", "Ground Beef", Type.PROTEIN));
