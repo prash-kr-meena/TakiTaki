@@ -19,18 +19,18 @@ public class DataLoader implements ApplicationRunner {
 
   @Override
   public void run(ApplicationArguments args) {
-    log.info("Data Insertion STARTED via ApplicationRunner");
-    ingredientRepository.save(new Ingredient("FLTO", "Flour Tortilla", Type.valueOf("WRAP")));
-    ingredientRepository.save(new Ingredient("COTO", "Corn Tortilla", Type.valueOf("WRAP")));
-    ingredientRepository.save(new Ingredient("GRBF", "Ground Beef", Type.valueOf("PROTEIN")));
-    ingredientRepository.save(new Ingredient("CARN", "Carnitas", Type.valueOf("PROTEIN")));
-    ingredientRepository.save(new Ingredient("TMTO", "Diced Tomatoes", Type.valueOf("VEGGIES")));
-    ingredientRepository.save(new Ingredient("LETC", "Lettuce", Type.valueOf("VEGGIES")));
-    ingredientRepository.save(new Ingredient("CHED", "Cheddar", Type.valueOf("CHEESE")));
-    ingredientRepository.save(new Ingredient("JACK", "Monterrey Jack", Type.valueOf("CHEESE")));
-    ingredientRepository.save(new Ingredient("SLSA", "Salsa", Type.valueOf("SAUCE")));
-    ingredientRepository.save(new Ingredient("SRCR", "Sour Cream", Type.valueOf("SAUCE")));
-    log.info("Data Insertion COMPLETED via ApplicationRunner");
+    //    log.info("Data Insertion STARTED via ApplicationRunner");
+    //    ingredientRepository.save(new Ingredient("FLTO", "Flour Tortilla", Type.valueOf("WRAP")));
+    //    ingredientRepository.save(new Ingredient("COTO", "Corn Tortilla", Type.valueOf("WRAP")));
+    //    ingredientRepository.save(new Ingredient("GRBF", "Ground Beef", Type.valueOf("PROTEIN")));
+    //    ingredientRepository.save(new Ingredient("CARN", "Carnitas", Type.valueOf("PROTEIN")));
+    //    ingredientRepository.save(new Ingredient("TMTO", "Diced Tomatoes", Type.valueOf("VEGGIES")));
+    //    ingredientRepository.save(new Ingredient("LETC", "Lettuce", Type.valueOf("VEGGIES")));
+    //    ingredientRepository.save(new Ingredient("CHED", "Cheddar", Type.valueOf("CHEESE")));
+    //    ingredientRepository.save(new Ingredient("JACK", "Monterrey Jack", Type.valueOf("CHEESE")));
+    //    ingredientRepository.save(new Ingredient("SLSA", "Salsa", Type.valueOf("SAUCE")));
+    //    ingredientRepository.save(new Ingredient("SRCR", "Sour Cream", Type.valueOf("SAUCE")));
+    //    log.info("Data Insertion COMPLETED via ApplicationRunner");
   }
 
 }
