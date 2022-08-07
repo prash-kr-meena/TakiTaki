@@ -7,8 +7,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Table
 public class Ingredient {
   @Id
